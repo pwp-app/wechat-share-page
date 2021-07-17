@@ -22,11 +22,5 @@
     "vite": "^2.4.2",
     "vue-tsc": "^0.2.1"
   },
-  "license": "MIT",
-  "husky": {
-    "hooks": {
-      "pre-commit": "f2elint commit-file-scan",
-      "commit-msg": "f2elint commit-msg-scan"
-    }
-  }
+  "license": "MIT"
 }
