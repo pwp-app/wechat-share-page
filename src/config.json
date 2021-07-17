@@ -1,0 +1,3 @@
+{
+  "qrcode_feed": "https://api.qrserver.com/v1/create-qr-code/?size=320x320&data={url}"
+}
