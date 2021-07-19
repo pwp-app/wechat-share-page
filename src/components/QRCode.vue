@@ -1,13 +1,13 @@
 <template>
   <img :src="source" v-if="loaded" />
-  <div class="qrcode-loading">
-    <Loading />
+  <div class="qrcode-loading" v-else>
+    <loading-icon />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, inject, ref } from 'vue';
-import Loading from './icons/Loading.vue';
+import loadingIcon from './icons/Loading.vue';
 
 export default defineComponent({
   props: {
@@ -15,6 +15,9 @@ export default defineComponent({
       type: String,
       required: true,
     },
+  },
+  components: {
+    loadingIcon,
   },
   setup(props) {
     const loaded = ref(false);
@@ -32,7 +35,6 @@ export default defineComponent({
     return {
       source,
       loaded,
-      Loading,
     };
   },
 });

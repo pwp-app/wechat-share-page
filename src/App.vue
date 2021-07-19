@@ -12,11 +12,11 @@
       </div>
     </div>
     <div class="share-qrcode">
-      <QRCode :url="url" />
+      <qrcode :url="url" />
     </div>
     <div class="share-footer">
       <p>此页面非微信官方页面</p>
-      <p>Developed by BackRunner.<GithubIcon /></p>
+      <p>Developed by BackRunner.<github-icon /></p>
     </div>
   </div>
 </template>
@@ -24,11 +24,15 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { getQuery } from 'queryzz';
-import QRCode from './components/QRCode.vue';
-import GitHubIcon from './components/icons/GitHub.vue';
+import qrcode from './components/QRCode.vue';
+import githubIcon from './components/icons/GitHub.vue';
 
 export default defineComponent({
   name: 'App',
+  components: {
+    qrcode,
+    githubIcon,
+  },
   setup() {
     const query = getQuery();
     let showError = false;
@@ -39,8 +43,6 @@ export default defineComponent({
     }
     const { title, url } = query;
     return {
-      QRCode,
-      GitHubIcon,
       showError,
       errorMsg,
       title,
@@ -49,3 +51,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="less">
+.share {
+  margin: 2rem;
+}
+</style>
