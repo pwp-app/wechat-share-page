@@ -4,8 +4,6 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     aria-hidden="true"
     role="img"
-    class="iconify iconify--eos-icons"
-    preserveAspectRatio="xMidYMid meet"
     viewBox="0 0 24 24"
   >
     <path
