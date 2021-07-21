@@ -1,7 +1,9 @@
 <template>
-  <img :src="source" v-if="loaded" />
-  <div class="qrcode-loading" v-else>
-    <loading-icon />
+  <div class="qrcode-wrapper">
+    <img class="qrcode" :src="source" v-if="loaded" />
+    <div class="qrcode qrcode-loading" v-else>
+      <loading-icon />
+    </div>
   </div>
 </template>
 
@@ -39,3 +41,24 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="less">
+.qrcode-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 2.75rem;
+  .qrcode {
+    margin: 1.5rem auto;
+    width: 12.5rem;
+    height: 12.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+}
+</style>

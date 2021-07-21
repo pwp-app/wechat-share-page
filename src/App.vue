@@ -8,7 +8,7 @@
         <span>{{ title }}</span>
       </div>
       <div class="share-info__url">
-        <span>{{ url }}</span>
+        <span @click="jump">{{ url }}</span>
       </div>
     </div>
     <div class="share-qrcode">
@@ -25,6 +25,7 @@
   </div>
   <div class="share-footer">
     <p>此页面非微信官方页面</p>
+    <p>请您自行确认分享内容的安全性</p>
   </div>
 </template>
 
@@ -48,12 +49,19 @@ export default defineComponent({
       showError = true;
       errorMsg = '请输入正确的参数';
     }
-    const { title, url } = query;
+    const { title, url } = query as { title: string; url: string };
+    const jump = () => {
+      if (!url) {
+        return;
+      }
+      window.location.href = url;
+    };
     return {
       showError,
       errorMsg,
       title,
       url,
+      jump,
     };
   },
 });
@@ -63,6 +71,39 @@ export default defineComponent({
 .share {
   margin: 2rem;
   user-select: none;
+  &-tip {
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    padding-top: 2rem;
+  }
+  &-info {
+    text-align: center;
+    &__title {
+      padding-top: 1rem;
+      font-size: 1.125rem;
+      span {
+        max-width: 17.5rem;
+        word-break: keep-all;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    &__url {
+      padding-top: 0.625rem;
+      font-size: 0.75rem;
+      span {
+        max-width: 19.25rem;
+        word-break: keep-all;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--text-link);
+      }
+    }
+  }
 }
 .share-error {
   padding-top: 4.5rem;
@@ -87,14 +128,14 @@ export default defineComponent({
 .share-footer {
   position: fixed;
   width: 100vw;
-  bottom: 42px;
+  bottom: 2.625rem;
   user-select: none;
   p {
     width: 100vw;
     font-size: 0.75rem;
     color: var(--text-secondary);
     margin: 0 auto;
-    line-height: 22px;
+    line-height: 1.375rem;
     display: flex;
     text-align: center;
     align-items: center;
@@ -102,7 +143,7 @@ export default defineComponent({
     svg {
       width: 1rem;
       height: 1rem;
-      margin-left: 8px;
+      margin-left: 0.5rem;
     }
   }
 }
