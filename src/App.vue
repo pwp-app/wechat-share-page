@@ -147,4 +147,26 @@ export default defineComponent({
     }
   }
 }
+
+@media screen and (max-width: 767px) {
+  .share {
+    margin: 1.5rem;
+    &-tip {
+      padding-top: 1rem;
+    }
+    &-info {
+      &__title {
+        padding-top: 1.5rem;
+      }
+      &__url {
+        padding-top: 0.75rem;
+      }
+    }
+    &-qrcode {
+      .qrcode-wrapper {
+        padding-top: 1.125rem;
+      }
+    }
+  }
+}
 </style>
