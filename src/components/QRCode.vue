@@ -48,6 +48,8 @@ export default defineComponent({
   max-width: 1200px;
   margin: 0 auto;
   padding-top: 2.75rem;
+  box-sizing: border-box;
+  position: relative;
   .qrcode {
     margin: 1.5rem auto;
     width: 12.5rem;
@@ -58,6 +60,20 @@ export default defineComponent({
     svg {
       width: 2.5rem;
       height: 2.5rem;
+    }
+  }
+}
+
+.dark {
+  .qrcode-wrapper {
+    padding-top: 1.875rem;
+    .qrcode {
+      padding: 1.5rem;
+      width: 10.5rem;
+      height: 10.5rem;
+      border-radius: 24px;
+      background: var(--off-white);
+      box-shadow: 4px 4px 28px rgba(0, 0, 0, 0.25);
     }
   }
 }

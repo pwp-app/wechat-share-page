@@ -10,4 +10,10 @@
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
+  <script>
+    const { search } = window.location;
+    if (search.includes('?dark=1') || search.includes('&dark=1')) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
 </html>
